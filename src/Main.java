@@ -102,7 +102,25 @@ public class Main {
                         System.out.println(e.getMessage());
                     }
 
-                    break;                                    
+                    break;   
+                 case 5:
+
+                    System.out.println("Ingrese el id del alumno: ");
+                    id=sc.nextInt();
+
+                    try {
+
+                        Connection conn= DriverManager.getConnection(url, user, pwd);
+                        Statement st= conn.createStatement();
+                        String psql="DELETE FROM ALUMNO WHERE ALUMNO.ID='"+id+"'";
+                        st.execute(psql);
+                        conn.close();
+                    }catch(SQLException e){
+                        System.out.println(e.getMessage());
+                    }
+
+                    break;
+
 
 
 
